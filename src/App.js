@@ -1,17 +1,18 @@
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+// Esto es solo si quiero usar codigo del bootstrap comun
+import 'bootstrap/dist/js/bootstrap.bundle.js'
+import NavBar from './components/navbar/NavBar'
+// import NavBarComun from './components/navbar/NavBarComun';
+import ItemListContainer from './components/itemListContainer/ItemListContainer'
 
 function App() {
+
   return (
     <div>
-          <nav className='navContainer'>
-            <a className='link' href="/">CoderApp</a>
-            <div className='linksContainer'>
-              <a className='link' href="/">Nuevos</a>
-              <a className='link' href="/">Mas vendidos</a>
-              <a className='link'  href="/">Ofertas</a>
-            </div>
-            <img className='cartWidget' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpamj_kQJs_Jcru_njDODfNE1thUfSNjomH9juIEoMHi4jlGdHyXaN39seojZHrq8S-MQ&usqp=CAU'/>
-          </nav>
+      <NavBar/> 
+      {/* <NavBarComun/>    */}
+      <ItemListContainer greeting="Bienvenidos a mi app"/>
     </div>
   );
 }
