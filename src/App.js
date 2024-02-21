@@ -1,17 +1,17 @@
 import './App.css'
-
+import Navbar from './components/navbar/Navbar'
+import { ItemListContainer } from './components/itemListContainer/ItemListContainer'
 function App() {
+  const saludo='Hola chicos!'
+  const testObj={
+    name:'Laura',
+    lastName:'Therisod'
+  }
   return (
+
     <div>
-          <nav className='navContainer'>
-            <a className='link' href="/">CoderApp</a>
-            <div className='linksContainer'>
-              <a className='link' href="/">Nuevos</a>
-              <a className='link' href="/">Mas vendidos</a>
-              <a className='link'  href="/">Ofertas</a>
-            </div>
-            <img className='cartWidget' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpamj_kQJs_Jcru_njDODfNE1thUfSNjomH9juIEoMHi4jlGdHyXaN39seojZHrq8S-MQ&usqp=CAU'/>
-          </nav>
+        <Navbar/>
+        <ItemListContainer greeting='Bienvenidos a mi app' saludo={saludo} testObj={testObj}/>
     </div>
   );
 }

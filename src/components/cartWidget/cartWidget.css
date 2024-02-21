@@ -1,0 +1,14 @@
+.cart{
+    width:2.5rem;
+}
+
+.badge{
+    background-color: red;
+    padding: .5em;
+    color:white;
+    border-radius: 1px;
+}
+.container {
+    display:flex;
+    align-items: center;
+}
