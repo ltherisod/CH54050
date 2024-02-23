@@ -7,7 +7,7 @@ import NavBar from './components/navbar/NavBar'
 import ItemListContainer from './components/itemListContainer/ItemListContainer'
 
 function App() {
-
+  console.log('soy App y me renderice')
   return (
     <div>
       <NavBar/> 
