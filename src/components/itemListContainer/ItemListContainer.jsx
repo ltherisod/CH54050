@@ -2,50 +2,45 @@ import React from 'react'
 //import hook
 import {useState, useEffect} from 'react'
 import ItemCount from '../itemCount/ItemCount'
+import {getProducts} from '../../mock/fakeApi'
+import ItemList from '../itemList/ItemList'
 
 function ItemListContainer({greeting}) {
-    // console.log('soy ItemListContainer y me renderice')
-    // const [saludo, setSaludo]=useState('Hola')
-    // const [show, setShow] = useState(false)
-    // //let numero = 0
-    // const [numero, setNumero] = useState(0)
-    // const cambiarSaludo = () =>{
-    //   setSaludo('Chau')
-    // }
-
-    // const sumar = () =>{
-    //   setNumero (numero + 1)
-    // }
-
-    // const cambiarShow = () =>{
-    //   setShow(!show)
-    // }
-    // //se ejecuta todas las veces
-    // //Caasi no se usa
-    // useEffect(()=>{
-    //   console.log('me ejecuto todas las veces')
-    // })
-
-    // //se ejecuta una sola vez
-
-    // useEffect(()=>{
-    //   console.log('me ejecuto una sola vez')
-    // },[])
-
-    // //me ejecuto cada vez que cambie algo
-    // useEffect(()=>{
-    //   console.log('Me ejecuto cuando numero cambie')
-    // },[numero])
-
+  const [productos, setProductos]=useState([])
+ 
+  //Ejemplo de promesa
+  // const productos=[
+  //   {id:'1', name:'product1', stock:10},
+  //   {id:'2', name:'product2', stock:0},
+  //   {id:'3', name:'product3', stock:50}
+  // ]
+  //  const getProducts = () =>{
+  //   let error = false
+  //   return new Promise ((resolve, reject)=>{
+  //     setTimeout(()=>{
+  //       if(error){
+  //         reject('No hay ')
+  //       }else{
+  //         resolve(productos)
+  //       }
+  //     },7000)
+  //   })
+  //  }
+  //  //console.log(getProducts())
+  //  getProducts().then((res)=> console.log(res)).catch((error)=> console.log(error))
+  useEffect(()=>{
+    getProducts()
+    .then((res)=>setProductos(res))
+    .catch((error)=> console.log(error, 'todo mal'))
+  },[])
+  
   return (
     <div>
         <h1 className='fst-italic text-danger-emphasis'>{greeting}</h1>
-        {/* <p>{numero}</p>
-        <button onClick={cambiarSaludo}>{saludo}</button>
-        <button className='btn btn-primary' onClick={sumar}>
-         +
-        </button>
-        <button onClick={cambiarShow}>{'cambiar show'}</button> */}
+        {/* {
+          productos.map((producto)=> <p key={producto.id}>{producto.stock}</p>)
+        } */}
+          <ItemList productos={productos}/>
         <ItemCount stock={11}/>
     </div>
   )

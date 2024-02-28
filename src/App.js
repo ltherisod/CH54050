@@ -12,7 +12,6 @@ function App() {
 
     <div>
       <NavBar/> 
-      {/* <NavBarComun/>    */}
       <ItemListContainer greeting="Bienvenidos a mi app"/>
     </div>
   );

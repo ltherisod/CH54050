@@ -5,7 +5,10 @@ const ItemCount = ({stock}) =>{
     const [count, setCount]= useState(1)
 
     const onAdd = ()=>{
-        console.log('compraste un item')
+       
+
+            console.log('compraste un item')
+        
     }
 
     const sumar = () =>{
@@ -28,7 +31,7 @@ const ItemCount = ({stock}) =>{
             <span  className="btn">{count}</span>
             <button className="btn btn-success" onClick={sumar}>+</button>
         </div>
-        <button className="btn btn-primary" onClick={onAdd}>Comprar</button>
+        <button className="btn btn-primary" disabled={stock === 0 || count === 0} onClick={onAdd}>Comprar</button>
         </>
     )
 }
