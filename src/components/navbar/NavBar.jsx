@@ -6,7 +6,7 @@ import CartWidget from '../cartWidget/CartWidget';
 import logo from '../../images/logo.png'
 
 function NavBar() {
-  console.log('soy Navbar y me renderice')
+  // console.log('soy Navbar y me renderice')
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
