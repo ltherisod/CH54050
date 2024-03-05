@@ -5,14 +5,16 @@ import 'bootstrap/dist/js/bootstrap.bundle.js'
 import NavBar from './components/navbar/NavBar'
 // import NavBarComun from './components/navbar/NavBarComun';
 import ItemListContainer from './components/itemListContainer/ItemListContainer'
+import ItemDetailContainer from './components/itemDetailContainer/ItemDetailContainer';
 
 function App() {
-  console.log('soy App y me renderice')
+
   return (
 
     <div>
       <NavBar/> 
       <ItemListContainer greeting="Bienvenidos a mi app"/>
+      <ItemDetailContainer/>
     </div>
   );
 }

@@ -1,7 +1,6 @@
 import React from 'react'
 //import hook
 import {useState, useEffect} from 'react'
-import ItemCount from '../itemCount/ItemCount'
 import {getProducts} from '../../mock/fakeApi'
 import ItemList from '../itemList/ItemList'
 
@@ -41,7 +40,6 @@ function ItemListContainer({greeting}) {
           productos.map((producto)=> <p key={producto.id}>{producto.stock}</p>)
         } */}
           <ItemList productos={productos}/>
-        <ItemCount stock={11}/>
     </div>
   )
 }
