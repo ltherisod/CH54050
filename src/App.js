@@ -6,6 +6,7 @@ import NavBar from './components/navbar/NavBar'
 // import NavBarComun from './components/navbar/NavBarComun';
 import ItemListContainer from './components/itemListContainer/ItemListContainer'
 import ItemDetailContainer from './components/itemDetailContainer/ItemDetailContainer';
+import ComponenteChildren from './components/componenteChildren/ComponenteChildren';
 
 function App() {
 
@@ -15,6 +16,19 @@ function App() {
       <NavBar/> 
       <ItemListContainer greeting="Bienvenidos a mi app"/>
       <ItemDetailContainer/>
+
+      {/* <ComponenteChildren/>
+      <ComponenteChildren>
+        <p>Hola</p>
+        <p>Chau</p>
+      </ComponenteChildren>
+      <ComponenteChildren>
+        <img src='../images/carrito.png' alt='carrito'/>
+      </ComponenteChildren>
+      <ComponenteChildren>
+       <ItemDetailContainer/>
+       <ItemDetailContainer/>
+      </ComponenteChildren> */}
     </div>
   );
 }

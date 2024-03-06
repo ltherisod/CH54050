@@ -4,6 +4,7 @@ import ItemDetail from "../itemDetail/ItemDetail"
 
 const ItemDetailContainer = () =>{
     const [producto, setProducto] = useState({})
+    const [cargando, setCargando] = useState(false)
 
     //Ejemplo si hago una funcion a parte
     // useEffect(()=>{
@@ -14,11 +15,16 @@ const ItemDetailContainer = () =>{
 
     //Ejemplo de usar la funcion de ItemListContainer
     useEffect(()=>{
+        setCargando(true)
         getProducts()
         .then((res)=> setProducto(res.find((item)=> item.id === '2')))
         .catch((error)=> console.log(error))
+        .finally(()=> setCargando(false))
     },[])
 
+    if(cargando){
+        return <h2>Cargando detalle...</h2>
+    }
     return(
         <div>
             <ItemDetail producto={producto}/>

@@ -3,43 +3,39 @@ import React from 'react'
 import {useState, useEffect} from 'react'
 import {getProducts} from '../../mock/fakeApi'
 import ItemList from '../itemList/ItemList'
+import Item from '../item/Item'
 
 function ItemListContainer({greeting}) {
   const [productos, setProductos]=useState([])
- 
-  //Ejemplo de promesa
-  // const productos=[
-  //   {id:'1', name:'product1', stock:10},
-  //   {id:'2', name:'product2', stock:0},
-  //   {id:'3', name:'product3', stock:50}
-  // ]
-  //  const getProducts = () =>{
-  //   let error = false
-  //   return new Promise ((resolve, reject)=>{
-  //     setTimeout(()=>{
-  //       if(error){
-  //         reject('No hay ')
-  //       }else{
-  //         resolve(productos)
-  //       }
-  //     },7000)
-  //   })
-  //  }
-  //  //console.log(getProducts())
-  //  getProducts().then((res)=> console.log(res)).catch((error)=> console.log(error))
+  const [loading, setLoading] = useState(false)
+  
   useEffect(()=>{
+    setLoading(true)
     getProducts()
     .then((res)=>setProductos(res))
     .catch((error)=> console.log(error, 'todo mal'))
+    .finally(()=> setLoading(false))
   },[])
+
+  //Ejemplo de render props
+
+  // const renderProductos = () =>{
+  //   return productos.map((producto)=><Item key={producto.id} producto={producto}/>)
+  // }
+
+
+  if(loading){
+    return<div style={{display:'flex', flexDirection:'column', alignItems:'center'}}> <h1>Cargando productos...</h1></div>
+  }
   
+
   return (
     <div>
         <h1 className='fst-italic text-danger-emphasis'>{greeting}</h1>
         {/* {
           productos.map((producto)=> <p key={producto.id}>{producto.stock}</p>)
         } */}
-          <ItemList productos={productos}/>
+          <ItemList productos={productos} />
     </div>
   )
 }

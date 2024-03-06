@@ -1,8 +1,11 @@
 import React from 'react'
 import {useState} from 'react'
-
+import { useCounter } from '../../hooks/useCounter'
 const ItemCount = ({stock}) =>{
-    const [count, setCount]= useState(1)
+
+    //Usamos el custom hook
+const {count, restar, sumar}= useCounter(stock)
+    //const [count, setCount]= useState(1)
 
     const onAdd = ()=>{
        
@@ -11,18 +14,18 @@ const ItemCount = ({stock}) =>{
         
     }
 
-    const sumar = () =>{
-        if(count < stock){
-            setCount(count + 1)
-        }
-    }
+    // const sumar = () =>{
+    //     if(count < stock){
+    //         setCount(count + 1)
+    //     }
+    // }
 
-    const restar = () => {
-        if(count > 0){
+    // const restar = () => {
+    //     if(count > 0){
 
-            setCount(count -1)
-        }
-    }
+    //         setCount(count -1)
+    //     }
+    // }
 
     return(
         <>
