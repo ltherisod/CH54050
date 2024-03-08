@@ -1,23 +1,17 @@
 import { useEffect, useState } from "react"
-import { getOneProduct, getProducts } from "../../mock/fakeApi"
+import {  getProducts } from "../../mock/fakeApi"
 import ItemDetail from "../itemDetail/ItemDetail"
+import { useParams } from "react-router-dom"
 
 const ItemDetailContainer = () =>{
     const [producto, setProducto] = useState({})
+    const {itemId} = useParams()
 
-    //Ejemplo si hago una funcion a parte
-    // useEffect(()=>{
-    //     getOneProduct('2')
-    //     .then((res)=> setProducto(res))
-    //     .catch((error)=> console.log(error))
-    // },[])
-
-    //Ejemplo de usar la funcion de ItemListContainer
     useEffect(()=>{
         getProducts()
-        .then((res)=> setProducto(res.find((item)=> item.id === '2')))
+        .then((res)=> setProducto(res.find((item)=> item.id === itemId)))
         .catch((error)=> console.log(error))
-    },[])
+    },[itemId])
 
     return(
         <div>

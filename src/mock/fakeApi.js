@@ -15,7 +15,7 @@ const productos = [
         price:1500,
         description:'loremjfvnfdsjgnjkfn fjknjgnjksdfng nfnsjsngknskjsg',
         imagen:'../images/kinder.jpg',
-        categoria:'mas vendidos'
+        category:'mas vendidos'
     },
     {
         id:'3',
@@ -24,7 +24,7 @@ const productos = [
         price:2000,
         description:'loremjfvnfdsjgnjkfn fjknjgnjksdfng nfnsjsngknskjsg',
         imagen:'../images/nerds.jpg',
-        categoria:'oferta'
+        category:'oferta'
     },
     {
         id:'4',
@@ -33,7 +33,7 @@ const productos = [
         price:50,
         description:'loremjfvnfdsjgnjkfn fjknjgnjksdfng nfnsjsngknskjsg',
         imagen:'../images/palito.jpg',
-        categoria:'mas vendidos'
+        category:'mas vendidos'
     },
     {
         id:'5',
@@ -42,7 +42,7 @@ const productos = [
         price:4000,
         description:'loremjfvnfdsjgnjkfn fjknjgnjksdfng nfnsjsngknskjsg',
         imagen:'../images/skittles.jpg',
-        categoria:'nuevos'
+        category:'nuevos'
     }
 ]
 
@@ -56,7 +56,7 @@ export const getProducts =() => {
                 
                 resolve(productos)
             }
-        },5000)
+        },2000)
     })
 }
 
