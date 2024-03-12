@@ -1,52 +1,46 @@
 import React from 'react'
 //import hook
 import {useState, useEffect} from 'react'
-import ItemCount from '../itemCount/ItemCount'
+import { getProducts } from '../../mock/data'
+import ItemList from '../itemList/ItemList'
+import { useParams } from 'react-router-dom'
 
 function ItemListContainer({greeting}) {
-    // console.log('soy ItemListContainer y me renderice')
-    // const [saludo, setSaludo]=useState('Hola')
-    // const [show, setShow] = useState(false)
-    // //let numero = 0
-    // const [numero, setNumero] = useState(0)
-    // const cambiarSaludo = () =>{
-    //   setSaludo('Chau')
-    // }
+ const [products, setProducts] = useState([])
+ //opcional
+ const [error, setError] = useState(false)
+ const [loading, setLoading]= useState(false)
+const {categoryId}=useParams()
 
-    // const sumar = () =>{
-    //   setNumero (numero + 1)
-    // }
+  useEffect(()=>{
+    console.log('hola desde el useEffect')
+    setLoading(true)
+    getProducts()
+    .then((res)=>{
+      if(categoryId){
+       let filtrado= res.filter((prod)=> prod.category === categoryId)
+       setProducts(filtrado)
+      }else{
+        setProducts(res)
+      }
+    })
+    .catch((error)=> setError(error))
+    .finally(()=> setLoading(false))
+  },[categoryId])
 
-    // const cambiarShow = () =>{
-    //   setShow(!show)
-    // }
-    // //se ejecuta todas las veces
-    // //Caasi no se usa
-    // useEffect(()=>{
-    //   console.log('me ejecuto todas las veces')
-    // })
-
-    // //se ejecuta una sola vez
-
-    // useEffect(()=>{
-    //   console.log('me ejecuto una sola vez')
-    // },[])
-
-    // //me ejecuto cada vez que cambie algo
-    // useEffect(()=>{
-    //   console.log('Me ejecuto cuando numero cambie')
-    // },[numero])
+//opcional
+  if(loading){
+    return <h1>Cargando...</h1>
+  }
+//opcional
+  if(error){
+    return <h1>Hubo un error intente mas tarde</h1>
+  }
 
   return (
     <div>
         <h1 className='fst-italic text-danger-emphasis'>{greeting}</h1>
-        {/* <p>{numero}</p>
-        <button onClick={cambiarSaludo}>{saludo}</button>
-        <button className='btn btn-primary' onClick={sumar}>
-         +
-        </button>
-        <button onClick={cambiarShow}>{'cambiar show'}</button> */}
-        <ItemCount stock={11}/>
+        <ItemList products={products}/>
     </div>
   )
 }
