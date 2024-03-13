@@ -16,6 +16,7 @@ function NavBar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as={NavLink} to='/'>Home</Nav.Link>
+            <Nav.Link as={NavLink} to='/form'>Formulario</Nav.Link>
             <NavDropdown title="Categorias" id="basic-nav-dropdown">
               <NavDropdown.Item as={NavLink} to='/categories/nuevos'> Nuevos</NavDropdown.Item>
               <NavDropdown.Divider />
