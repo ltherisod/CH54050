@@ -1,11 +1,16 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import ItemCount from '../itemCount/ItemCount'
+import { CartContext } from '../../context/CartContext'
 const ItemDetail = ({producto}) => {
 const [cantidadAgregada, setCantidadAgregada] = useState(0)
 const [compra, setCompra] = useState(false)
+//llamo al hook y le digo que contexto quiero usar
+const {addItem} = useContext(CartContext)
+
   const onAdd = (cantidad) =>{
-    console.log('compraste un item', cantidad)
-    setCantidadAgregada(cantidad)
+    addItem(producto,cantidad)
+    //no recomiendo usarlo
+    // setCantidadAgregada(cantidad)
     setCompra(true)
   }
   console.log(cantidadAgregada)
@@ -17,11 +22,11 @@ const [compra, setCompra] = useState(false)
         <p>{producto.description}</p>
         <p>${producto.price},00</p>
         {/* Como recomiendo hacerlo */}
-       {/* { compra ? <button className='btn btn-success'>Ir al carrito</button> : <ItemCount stock={producto.stock} onAdd={onAdd}/>} */}
+       { compra ? <button className='btn btn-success'>Ir al carrito</button> : <ItemCount stock={producto.stock} onAdd={onAdd}/>}
        {/* Como lo dice tal cual la actividad del contador */}
-       {cantidadAgregada > 0 
+       {/* {cantidadAgregada > 0 
         ? <button className='btn btn-success'>Ir al carrito</button> 
-        : <ItemCount stock={producto.stock} onAdd={onAdd}/> }
+        : <ItemCount stock={producto.stock} onAdd={onAdd}/> } */}
     </div>
   )
 }

@@ -27,7 +27,9 @@ function NavBar() {
               <NavDropdown.Item as={NavLink} to='/categories/oferta'>Ofertas</NavDropdown.Item>
             </NavDropdown>
           </Nav>
+          <NavLink to='/cart' style={{textDecoration:'none'}}>
           <CartWidget counter={15}/>
+          </NavLink>
         </Navbar.Collapse>
       </Container>
     </Navbar>
