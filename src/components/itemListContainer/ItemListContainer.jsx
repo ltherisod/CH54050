@@ -4,7 +4,7 @@ import {useState, useEffect} from 'react'
 import {getProducts} from '../../mock/fakeApi'
 import ItemList from '../itemList/ItemList'
 import { useParams } from 'react-router-dom'
-
+import Loader from '../loader/Loader'
 function ItemListContainer({greeting}) {
   const [productos, setProductos]=useState([])
   const  [loading, setLoading] = useState(false)
@@ -25,7 +25,11 @@ function ItemListContainer({greeting}) {
   },[categoryId])
   
   if(loading){
-    return <h2>Cargando...</h2>
+    return(
+    
+         <Loader/>
+      
+    )
   }
 
   return (
