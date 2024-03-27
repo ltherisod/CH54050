@@ -5,8 +5,9 @@ import {getProducts} from '../../mock/fakeApi'
 import ItemList from '../itemList/ItemList'
 import { useParams } from 'react-router-dom'
 import Loader from '../loader/Loader'
-import { collection, getDocs, query, where } from 'firebase/firestore'
+import { addDoc, collection, getDocs, query, where } from 'firebase/firestore'
 import { db } from '../../services/firebase'
+import { productosData } from '../../mock/fakeApi'
 function ItemListContainer({greeting}) {
   const [productos, setProductos]=useState([])
   const  [loading, setLoading] = useState(false)
@@ -33,7 +34,9 @@ function ItemListContainer({greeting}) {
   useEffect(()=>{
     setLoading(true)
     //Conectarnos con nuestra collection
-    const productsCollection = categoryId ? query(collection(db, "productos"), where("category", "==", categoryId)) : collection(db, "productos")
+    const productsCollection = categoryId 
+    ? query(collection(db, "productos"), where("category", "==", categoryId)) 
+    : collection(db, "productos")
     //pedimos los documentos
     getDocs(productsCollection)
     .then((res)=>{
@@ -49,7 +52,11 @@ function ItemListContainer({greeting}) {
     .finally(()=> setLoading(false))
   },[categoryId])
 
-  
+  // const addData = () =>{
+  //   const colectionProd = collection(db, "productos")
+  //   productosData.map((item)=> addDoc(colectionProd, item))
+
+  // }
   if(loading){
     return(
     
@@ -66,6 +73,7 @@ function ItemListContainer({greeting}) {
        ?<h1 className='fst-italic text-danger-emphasis'>{greeting} <span style={{color:'violet'}}>{categoryId}</span></h1>
        :<h1 className='fst-italic text-danger-emphasis'>{greeting}</h1>
        }
+       {/* <button onClick={addData}>Agregar productos</button> */}
        {/* si no quiero que salga la categoria */}
        {/* <h1 className='fst-italic text-danger-emphasis'>{greeting}</h1> */}
           <ItemList productos={productos}/>

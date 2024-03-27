@@ -1,24 +1,7 @@
-const productos = [
+export const productosData = [
+ 
     {
-        id:'1',
-        name:'Gomitas Haribo',
-        stock:10,
-        price:1000,
-        description:'loremjfvnfdsjgnjkfn fjknjgnjksdfng nfnsjsngknskjsg',
-        imagen:'../images/haribo.jpg',
-        category:'nuevos'
-    },
-    {
-        id:'2',
-        name:'Kinder Joy',
-        stock:25,
-        price:1500,
-        description:'loremjfvnfdsjgnjkfn fjknjgnjksdfng nfnsjsngknskjsg',
-        imagen:'../images/kinder.jpg',
-        category:'mas vendidos'
-    },
-    {
-        id:'3',
+      
         name:'Nerds',
         stock:30,
         price:2000,
@@ -27,7 +10,7 @@ const productos = [
         category:'oferta'
     },
     {
-        id:'4',
+       
         name:'Palitos de la selva',
         stock:20,
         price:50,
@@ -36,7 +19,7 @@ const productos = [
         category:'mas vendidos'
     },
     {
-        id:'5',
+       
         name:'Skittles',
         stock:5,
         price:4000,
@@ -54,7 +37,7 @@ export const getProducts =() => {
                 reject('Hubo un problema intente mas tarde')
             }else{
                 
-                resolve(productos)
+                resolve(productosData)
             }
         },2000)
     })
@@ -67,7 +50,7 @@ export const getOneProduct = (id) =>{
             if(error){
                 reject('Hubo un problema')
             }else{
-                let product = productos.find((item)=> item.id === id)
+                let product = productosData.find((item)=> item.id === id)
                 resolve(product)
             }
         }, 5000)

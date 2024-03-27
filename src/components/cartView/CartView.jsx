@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
+import { Link } from 'react-router-dom'
 
 const CartView = () => {
     const {cart, removeItem, cartPriceTotal, clear}= useContext(CartContext)
@@ -21,7 +22,10 @@ const CartView = () => {
             })}
         </div>
         <p>Total a pagar:${cartPriceTotal()},00 </p>
+        <div className='d-flex justify-content-around'>
         <button className='btn btn-danger' onClick={clear}>Vaciar carrito</button>
+        <Link className='btn btn-success' to='/checkout'>Finalizar Compra</Link>
+        </div>
     </div>
   )
 }
