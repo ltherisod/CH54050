@@ -22,4 +22,4 @@ Este proyecto es un ecommerce para comprar caramelos
 - [React Router Dom](https://firebase.google.com/): libreria de navegación por rutas
 - [React Spinners](https://firebase.google.com/): librerica de componentes spinners
 
-  # Desarrollado por Lalalala 😊
+# Desarrollado por Lalalala 😊

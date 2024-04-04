@@ -1,5 +1,5 @@
 import React from 'react'
-import { PacmanLoader } from 'react-spinners'
+// import { PacmanLoader } from 'react-spinners'
 
 const Loader = () => {
   return (

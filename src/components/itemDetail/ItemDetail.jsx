@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import ItemCount from '../itemCount/ItemCount'
 import { CartContext } from '../../context/CartContext'
 const ItemDetail = ({producto}) => {
-const [cantidadAgregada, setCantidadAgregada] = useState(0)
+
 const [compra, setCompra] = useState(false)
 //llamo al hook y le digo que contexto quiero usar
 const {addItem} = useContext(CartContext)
@@ -13,7 +13,7 @@ const {addItem} = useContext(CartContext)
     // setCantidadAgregada(cantidad)
     setCompra(true)
   }
-  console.log(cantidadAgregada)
+
 
   return (
     <div className='d-flex flex-column align-items-center justify-content-around'>

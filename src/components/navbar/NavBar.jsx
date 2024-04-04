@@ -7,7 +7,11 @@ import logo from '../../images/logo.png'
 import { NavLink } from 'react-router-dom';
 
 function NavBar() {
-  
+  const dropdownData = [
+    {path:'/categories/nuevos', name:'Nuevos'},
+    {path:'/categories/mas vendidos', name:'Mas vendidos'},
+    {path:'/categories/oferta', name:'Ofertas'},
+  ]
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
@@ -18,13 +22,21 @@ function NavBar() {
             <Nav.Link as={NavLink} to='/'>Home</Nav.Link>
             <Nav.Link as={NavLink} to='/form'>Formulario</Nav.Link>
             <NavDropdown title="Categorias" id="basic-nav-dropdown">
-              <NavDropdown.Item as={NavLink} to='/categories/nuevos'> Nuevos</NavDropdown.Item>
+              {dropdownData.map((url)=>{
+                return(
+                  <div  key={url.name}>
+                    {/* <NavDropdown.Divider /> */}
+                    <NavDropdown.Item as={NavLink} to={url.path}> {url.name}</NavDropdown.Item> 
+                  </div>
+                )
+              })}
+              {/* <NavDropdown.Item as={NavLink} to='/categories/nuevos'> Nuevos</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item as={NavLink} to='/categories/mas vendidos'>
                 Mas vendidos
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item as={NavLink} to='/categories/oferta'>Ofertas</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to='/categories/oferta'>Ofertas</NavDropdown.Item> */}
             </NavDropdown>
           </Nav>
           <NavLink to='/cart' style={{textDecoration:'none'}}>

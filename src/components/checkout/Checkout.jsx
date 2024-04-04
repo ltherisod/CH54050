@@ -5,17 +5,14 @@ import { db } from '../../services/firebase'
 import { Link } from 'react-router-dom'
 
 const Checkout = () => {
-    const [name, setName] = useState('')
-    const [lastname, setLastname] = useState('')
-    const [email, setEmail] = useState('')
-    const [phone, setPhone] = useState('')
+
     const [user, setUser] = useState({})
     const [validateEmail, setValidateEmail]=useState('')
     const [orderId, setOrderId] = useState('')
     const {cart, cartPriceTotal, clear} = useContext(CartContext)
-    const nameHandler = (e) =>{
-       setName(e.target.value)
-    }
+    // const nameHandler = (e) =>{
+    //    setName(e.target.value)
+    // }
     //console.log(name,lastname, email, phone)
     //funcion dinamica
     const userData = (e)=>{

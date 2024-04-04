@@ -6,9 +6,9 @@ export const CartContext = createContext()
 //creamos el proveedor del contexto
 export const CartProvider = ({children}) =>{
     const [cart, setCart]= useState([])
-    console.log(cart)
+    //console.log(cart)
 
-    // isInCart: (id) => true|false
+  
 
     // agregar cierta cantidad de un ítem al carrito
     const addItem = (item, quantity) =>{

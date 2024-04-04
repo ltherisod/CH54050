@@ -1,9 +1,10 @@
-import {Link, useNavigate} from 'react-router-dom'
+import {Link} from 'react-router-dom'
+// import{useNavigate}from 'react-router-dom'
 
 const Item = ({producto}) => {
   //ejemplo tiene un boton 
   //custom hook de la libreria para navegar
-  const navegar = useNavigate()
+  //const navegar = useNavigate()
     return(
         <div className="card" style={{width: '18rem'}} >
         <img src={producto.imagen}  className="card-img-top" alt={producto.name} />

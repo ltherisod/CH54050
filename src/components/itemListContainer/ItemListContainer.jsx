@@ -1,32 +1,17 @@
 import React from 'react'
 //import hook
 import {useState, useEffect} from 'react'
-import {getProducts} from '../../mock/fakeApi'
 import ItemList from '../itemList/ItemList'
 import { useParams } from 'react-router-dom'
 import Loader from '../loader/Loader'
-import { addDoc, collection, getDocs, query, where } from 'firebase/firestore'
+import {  collection, getDocs, query, where } from 'firebase/firestore'
 import { db } from '../../services/firebase'
-import { productosData } from '../../mock/fakeApi'
 function ItemListContainer({greeting}) {
   const [productos, setProductos]=useState([])
   const  [loading, setLoading] = useState(false)
   const {categoryId} = useParams()
   
-  // useEffect(()=>{
-  //   setLoading(true)
-  //   getProducts()
-  //   .then((res)=>{
-  //     if(categoryId){
-  //       setProductos(res.filter((prod)=> prod.category === categoryId))
-  //     }else{
-  //       setProductos(res)
-  //     }
-  //   })
-  //   .catch((error)=> console.log(error, 'todo mal'))
-  //   .finally(()=> setLoading(false))
-  // },[categoryId])
-
+  
 
 
   //FIREBASE!!!!
@@ -52,11 +37,7 @@ function ItemListContainer({greeting}) {
     .finally(()=> setLoading(false))
   },[categoryId])
 
-  // const addData = () =>{
-  //   const colectionProd = collection(db, "productos")
-  //   productosData.map((item)=> addDoc(colectionProd, item))
 
-  // }
   if(loading){
     return(
     
