@@ -1,17 +1,9 @@
 
 
-const productos = [
+export const productos = [
+    
     {
-        id:'01',
-        name:'random1',
-        category:'nuevos',
-        description:'lorem ipfnjkfnjsnefjknskef',
-        price:100,
-        img:'https://picsum.photos/200',
-        stock:10
-    },
-    {
-        id:'02',
+      
         name:'random2',
         category:'mas vendidos',
         description:'lorem ipfnjkfnjsnefjknskef',
@@ -20,7 +12,7 @@ const productos = [
         stock:15
     },
     {
-        id:'03',
+       
         name:'random3',
         category:'ofertas',
         description:'lorem ipfnjkfnjsnefjknskef',
@@ -29,7 +21,7 @@ const productos = [
         stock:5
     },
     {
-        id:'04',
+     
         name:'random4',
         category:'ofertas',
         description:'lorem ipfnjkfnjsnefjknskef',
@@ -38,7 +30,7 @@ const productos = [
         stock:25
     },
     {
-        id:'05',
+    
         name:'random5',
         category:'nuevos',
         description:'lorem ipfnjkfnjsnefjknskef',

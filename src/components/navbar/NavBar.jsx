@@ -25,7 +25,7 @@ function NavBar() {
             </NavDropdown>
           </Nav>
           <NavLink to='/cart' className="text-decoration-none">
-            <CartWidget counter={15}/>
+            <CartWidget counter={15} />
           </NavLink>
         </Navbar.Collapse>
       </Container>
